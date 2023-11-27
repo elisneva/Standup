@@ -1,0 +1,55 @@
+.event {
+    width: 100vw;
+    min-height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url('../img/2400-cromo-microfono-en-etapa-listo-para-radiodifusion.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    background-color: #fff;
+}
+.event__title {
+font-size: 100px;
+font-weight: 800;
+margin-bottom: 62px;
+line-height: 1.2;
+}
+.event__info {
+    display: flex;
+    gap: 80px;
+    margin-bottom: 62px;
+}
+.event__info-item {
+    font-size: 30px;
+    display: flex;
+    gap:8px;
+    align-items: end;
+    line-height: 2.1;
+}
+
+.event__info-number {
+    font-size: 80px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.event__btn {
+line-height: 1.4;
+font-size: 24px;
+}
+.event__btn_reserve {
+padding: 16px 32px;
+border-radius: 36px;
+background-color:#ffc119;
+color:#1a1a1a;
+margin-bottom: 24px;
+}
+.event__btn_edit {
+display: flex;
+gap:8px;
+font-size: 18px;
+align-items: center;
+}
