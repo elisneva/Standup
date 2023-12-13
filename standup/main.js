@@ -1,8 +1,16 @@
+import { Notification } from './scripts/notification.js';
 import './style.css';
 import TomSelect from 'tom-select';
+import Inputmask from "inputmask";
+import JustValidate from 'just-validate';
 
 const bookingComediansList = document.querySelector('.booking__comedians');
 const MAX_COMEDIANS = 6;
+
+const notification = Notification.getInstance();
+
+
+const bookingForm = document.querySelector('.booking__form');
 
 const createComediansBlock = (comedians) =>{
     const bookingComedian = document.createElement('li');
@@ -99,6 +107,84 @@ const init = async()=>{
 
     const comedianBlock = createComediansBlock(comedians);
     bookingComediansList.append(comedianBlock)
-}
 
-init()
+    //validation
+    const validate = new JustValidate(bookingForm, {
+        errorFieldCssClass: 'booking__input_invalid',
+        successFieldCssClass: 'booking__input_valid',
+    });
+    const booingInputFullname = document.querySelector(".booking__input_fullname");
+    const bookingInputPhone = document.querySelector(".booking__input_phone");
+    const bookingInputTicket = document.querySelector(".booking__input_ticket");
+
+new Inputmask('+34(654)-101-242').mask(bookingInputPhone);
+new Inputmask('14586790').mask(bookingInputTicket);
+
+    validate
+    .addField(booingInputFullname,[{
+        rule: 'required',
+        errorMessage:"You need write a name",
+    },{
+        validator: ()=> {},
+        errorMessage: 'Incorrect name or fullname',
+    }])
+    .addField(bookingInputPhone, [{
+        rule: 'required',
+        errorMessage:"You need write a phone",
+    },{
+        validator: () => {
+            const phone = bookingInputPhone.Inputmask.unmaskedvalue();
+            return phone.length === 10;
+        },
+        errorMessage: 'Incorrect phone number',
+    }])
+    .addField(bookingInputTicket, [{
+        rule: 'required',
+        errorMessage:"You need write a ticket",
+    },{
+        validator: () => {
+            const ticket = bookingInputTicket.Inputmask.unmaskedvalue();
+            return ticket.length === 8 && !!Number(ticket);
+        },
+        errorMessage: 'Incorrect number of ticket',
+    },
+])
+.onFail((fields)=>{
+let errorMessage = '';
+
+for (const key in fields) {
+    if (!Object.hasOwnProperty.call(fields, key)) {
+        continue;
+    }
+    const element = fields[key];
+    if(!element.isValid){
+        errorMessage+= `${element.errorMessage}, `;
+    }
+}
+notification.show(errorMessage.slice(0, -2), false);
+});
+
+    //
+    bookingForm.addEventListener('submit',(e)=>{
+        e.preventDefault();
+        const data = {booking:[]};
+        const times = new Set(); //get only unique
+
+        new FormData(bookingForm).forEach((value, field)=>{
+            if (field === 'booking'){
+                const [comedian, time] = value.split(",");
+
+                if(comedian && time){
+                    data.booking.push({comedian, time})
+                    times.add(time);
+                }}else{
+                    data[field] = value;
+            }
+            if(times.size !== data.booking.length){
+                notification.show('You can not be in the same time in two place', false);
+            }
+        });
+    });
+};
+
+init();

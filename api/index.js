@@ -1,7 +1,7 @@
 import http from "node:http";
 import fs from "node:fs/promises"; //read modules file from PC
-import { sendData, sendError } from "./modules/send.js";
-import { checkFile } from "./modules/checkFile.js";
+import { sendError } from "./modules/send.js";
+import { checkFileExist, createFileIfNotExist } from "./modules/checkFile.js";
 import { handleComediansRequest } from "./modules/handleComediansRequest.js";
 import { handleAddClient } from "./modules/handleAddClient.js";
 import { handleClientsRequest } from "./modules/handleClientsRequest.js";
@@ -12,21 +12,37 @@ const PORT = 8080;
 const COMEDIANS = './comedians.json';
 export const CLIENTS = './clients.json';
 
-const startServer = async ()=>{
+const startServer = async (port)=>{
     if (!(await checkFile(COMEDIANS))){//if return F its go be T
         return;
     } 
-    await checkFile(CLIENTS, true)
+    //await checkFile(CLIENTS, true)
+    await createFileIfNotExist(CLIENTS);
 
     const comediansData = await fs.readFile(COMEDIANS, 'utf-8');
     const comedians = JSON.parse(comediansData);
 
     http.createServer(async (req, res) => {
 try{
-    res.setHeader("Access-Control-Allow-Origin", "*")
-    const segments = req.url.split('/').filter(Boolean);
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", 'Content-Type');
 
-        if(req.method === "GET" && segments[0] === 'comedians'){
+if(req.method === 'OPTIONS'){
+    res.writeHead(204);
+    res.end();
+    return;
+}
+
+    const segments = req.url.split('/').filter(Boolean);
+    
+    if(!segments.length){
+        sendError(res, 404, 'Not found');
+        return;
+    }
+    const [resource, id] = segments;
+
+        /*if(req.method === "GET" && segments[0] === 'comedians'){
             handleComediansRequest(req, res, comedians, segments);
             return;
         }  
@@ -47,6 +63,26 @@ try{
             handleUpdateClient(req, res, segments);
             return;
         }
+*/
+if (req.method === "GET" && resource === "comedians") {
+          handleComediansRequest(req, res, comedians, id);
+          return;
+        }
+
+        if (req.method === "POST" && resource === "clients") {
+          handleAddClient(req, res);
+          return;
+        }
+
+        if (req.method === "GET" && resource === "clients" && id) {
+          handleClientsRequest(req, res, id);
+          return;
+        }
+
+        if (req.method === "PATCH" && resource === "clients" && id) {
+          handleUpdateClient(req, res, id);
+          return;
+        }
         sendError(res, 404, 'Not found');
     }
 
@@ -55,7 +91,9 @@ try{
     }
             
     })
-    .listen(PORT);
+    .listen(port, ()=>{
+        console.log(`Server on http://localhost:${port}`);
+    });
 };
 
-startServer();
+startServer(PORT);

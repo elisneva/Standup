@@ -89,3 +89,7 @@ padding: 10px 16px 8px 16px;
 .ts-wrapper .single .dropdown-active .ts-control::after{
     border-color: transparent transparent #1a1a1a transparent;
 }
+
+.just-validate-error-label{
+    display: none;
+}

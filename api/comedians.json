@@ -1,183 +1,183 @@
 [
   {
     "id": "1",
-    "comedian": "РУСЛАН БЕЛЫЙ",
+    "comedian": "Ed Byrne",
     "performances": [
       {
         "time": "12:00",
-        "hall": "Зал 1"
+        "hall": "Hall 1"
       },
       {
         "time": "23:00",
-        "hall": "Зал 2"
+        "hall": "Hall 2"
       }
     ]
   },
   {
     "id": "2",
-    "comedian": "ЮЛЯ АХМЕДОВА",
+    "comedian": "Lou Sanders",
     "performances": [
       {
         "time": "13:00",
-        "hall": "Зал 1"
+        "hall": "Hall 1"
       }
     ]
   },
   {
     "id": "3",
-    "comedian": "ТИМУР КАРГИНОВ",
+    "comedian": "Tom Allen",
     "performances": [
       {
         "time": "14:00",
-        "hall": "Зал 1"
+        "hall": "Hall 1"
       }
     ]
   },
   {
     "id": "4",
-    "comedian": "СЛАВА КОМИССАРЕНКО",
+    "comedian": "Kerry Godliman",
     "performances": [
       {
         "time": "15:00",
-        "hall": "Зал 1"
+        "hall": "Hall 1"
       }
     ]
   },
   {
     "id": "5",
-    "comedian": "АЛЕКСЕЙ ЩЕРБАКОВ",
+    "comedian": "Eddie Izzard",
     "performances": [
       {
         "time": "16:00",
-        "hall": "Зал 1"
+        "hall": "Hall 1"
       },
       {
         "time": "21:00",
-        "hall": "Зал 1"
+        "hall": "Hall 1"
       }
     ]
   },
   {
     "id": "6",
-    "comedian": "ВИКТОР КОМАРОВ",
+    "comedian": "Kiri Pitchard McLean",
     "performances": [
       {
         "time": "17:00",
-        "hall": "Зал 1"
+        "hall": "Hall 1"
       },
       {
         "time": "22:00",
-        "hall": "Зал 1"
+        "hall": "Hall 1"
       }
     ]
   },
   {
     "id": "7",
-    "comedian": "ДМИТРИЙ РОМАНОВ",
+    "comedian": "Michael McIntyre",
     "performances": [
       {
         "time": "18:00",
-        "hall": "Зал 1"
+        "hall": "Hall 1"
       },
       {
         "time": "23:00",
-        "hall": "Зал 1"
+        "hall": "Hall 1"
       }
     ]
   },
   {
     "id": "8",
-    "comedian": "ЕЛЕНА НОВИКОВА",
+    "comedian": "Kevin Bridges",
     "performances": [
       {
         "time": "19:00",
-        "hall": "Зал 1"
+        "hall": "Hall 1"
       }
     ]
   },
   {
     "id": "9",
-    "comedian": "ВАНЯ УСОВИЧ",
+    "comedian": "Sara Pascoe",
     "performances": [
       {
         "time": "12:00",
-        "hall": "Зал 2"
+        "hall": "Hall 2"
       }
     ]
   },
   {
     "id": "10",
-    "comedian": "ИЛЬЯ СОБОЛЕВ",
+    "comedian": "Lucy Porter",
     "performances": [
       {
         "time": "13:00",
-        "hall": "Зал 2"
+        "hall": "Hall 2"
       }
     ]
   },
   {
     "id": "11",
-    "comedian": "ИРА ПРИХОДЬКО",
+    "comedian": "Roisin Conaty",
     "performances": [
       {
         "time": "14:00",
-        "hall": "Зал 2"
+        "hall": "Hall 2"
       }
     ]
   },
   {
     "id": "12",
-    "comedian": "ЕВГЕНИЙ ЧЕБАТКОВ",
+    "comedian": "Celia Pacquola",
     "performances": [
       {
         "time": "15:00",
-        "hall": "Зал 2"
+        "hall": "Hall 2"
       },
       {
         "time": "19:00",
-        "hall": "Зал 2"
+        "hall": "Hall 2"
       }
     ]
   },
   {
     "id": "13",
-    "comedian": "ВИКТОРИЯ СКЛАДЧИКОВА",
+    "comedian": "Ellie Taylor",
     "performances": [
       {
         "time": "16:00",
-        "hall": "Зал 2"
+        "hall": "Hall 2"
       },
       {
         "time": "20:00",
-        "hall": "Зал 2"
+        "hall": "Hall 2"
       }
     ]
   },
   {
     "id": "14",
-    "comedian": "ПАВЕЛ ДЕДИЩЕВ",
+    "comedian": "Michelle Wolf",
     "performances": [
       {
         "time": "17:00",
-        "hall": "Зал 2"
+        "hall": "Hall 2"
       },
       {
         "time": "21:00",
-        "hall": "Зал 2"
+        "hall": "Hall 2"
       }
     ]
   },
   {
     "id": "15",
-    "comedian": "АНДРЕЙ АТЛАС",
+    "comedian": "Francesca Martinez",
     "performances": [
       {
         "time": "18:00",
-        "hall": "Зал 2"
+        "hall": "Hall 2"
       },
       {
         "time": "22:00",
-        "hall": "Зал 2"
+        "hall": "Hall 2"
       }
     ]
   }

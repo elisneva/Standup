@@ -43,9 +43,11 @@ export const handleUpdateClient = (req, res, segments) =>{
             const clients = JSON.parse(clientData);
 
             const clientIndex = clients.findIndex((c) => c.ticketNumber === ticketNumber);
-                if (clientIndex === -1){
+                
+            if (clientIndex === -1){
                     sendError(res, 404, "A client with this number of ticket not founded")
-                }
+                return;
+            }
 
                 clients[clientIndex] = {
                     ...clients[clientIndex], ...updateDataClient,

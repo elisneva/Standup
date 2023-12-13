@@ -1,7 +1,7 @@
 .event {
     width: 100vw;
     min-height: 100vh;
-    display: none; /*flex;*/
+    display: flex; /*flex;*/
     align-items: center;
     justify-content: center;
     flex-direction: column;
