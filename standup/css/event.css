@@ -11,6 +11,14 @@
     color: #fff;
     background-color: #fff;
     padding: 80px 30px 80px;
+    opacity: 1;
+    visibility: visible;
+}
+.event__hidden{
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
 }
 .event__title {
 font-size: 100px;
@@ -37,6 +45,14 @@ line-height: 1.2;
 .event__btn {
 line-height: 1.4;
 font-size: 24px;
+visibility: visible;
+opacity: 1;
+visibility: visible;
+}
+
+.event__btn_hidden{
+    visibility: hidden;
+    opacity: 0;
 }
 .event__btn_reserve {
 padding: 16px 32px;
